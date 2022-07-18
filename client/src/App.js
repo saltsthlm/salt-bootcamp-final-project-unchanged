@@ -1,6 +1,6 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import Movie from "./components/Movie";
 import Login from "./components/login";
 import Profile from "./components/profile";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -20,6 +20,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
         {!isAuthenticated ? <Login /> : <Profile />}
+        <Movie/>
       </header>
     </div>
   );
