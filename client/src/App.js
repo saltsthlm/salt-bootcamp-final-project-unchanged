@@ -9,18 +9,16 @@ function App() {
   const { isAuthenticated } = useAuth0();
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data.message));
+  // }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>{!data ? "Loading..." : data}</p>
-        {!isAuthenticated ? <Login /> : <Profile />}
-        <Movie/>
+        {!isAuthenticated ? <Login /> : <Movie/>}
       </header>
     </div>
   );
