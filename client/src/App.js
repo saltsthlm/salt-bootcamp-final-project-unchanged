@@ -1,16 +1,15 @@
-import logo from "./assets/logo.svg";
-import popcorn from './assets/popcorn.png';
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Movie from "./components/Movie";
+import Movie from './components/Movie';
 import Login from "./components/login";
 import Profile from "./components/profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const { isAuthenticated } = useAuth0();
-  const [data, setData] = React.useState(null);
-  React.useEffect(() => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
@@ -19,7 +18,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={popcorn} className="App-logo" alt="logo" /> */}
         <p>{!data ? "Loading..." : data}</p>
         {!isAuthenticated ? <Login /> : <Profile />}
         <Movie/>
