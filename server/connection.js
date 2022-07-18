@@ -1,7 +1,9 @@
 const { MongoClient } = require('mongodb');
 
+const PASSWORD = '1234SALT';
+
 async function main(){
-const uri = 'mongodb+srv://codeClub:1234SALT@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
 
   const client = new MongoClient(uri);
 
