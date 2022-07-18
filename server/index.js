@@ -24,7 +24,7 @@ app.use(cors())
 
 app.get('/movie', async (req,res)=>{
   const url = "https://api.themoviedb.org/3/discover/movie?with_genres=18&api_key=2b61576c6129138ce5beeb3937518565&language=en-US";
-  const option={
+  const option= {
     "method" : "GET",
   }
   const response = await fetch(url, option)
