@@ -1,20 +1,29 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import MovieBox from "./components/MovieBox";
 
 function App() {
-  const [data, setData] = React.useState(null);
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+  const[movies,setMovies]=useState([])
+  // const  example = ["one", "two"]
+
+
+  useEffect (()=>{
+    fetch('http://localhost:3001/movie')
+    .then(res => res.json())
+    .then(data =>{ 
+        console.log(data);
+      setMovies(data.results);
+    })
+  
+  },[])
+
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
+      {movies.map(movie => 
+      <MovieBox key={movie.id} {...movie}/>)}
+
     </div>
   );
 }
