@@ -1,3 +1,5 @@
+import logo from "./assets/logo.svg";
+import popcorn from './assets/popcorn.png';
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Movie from "./components/Movie";
@@ -17,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        {/* <img src={popcorn} className="App-logo" alt="logo" /> */}
         <p>{!data ? "Loading..." : data}</p>
         {!isAuthenticated ? <Login /> : <Profile />}
         <Movie/>
