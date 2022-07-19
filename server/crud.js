@@ -14,10 +14,11 @@ async function main() {
 
         await createListing(client,
           {
-              name: "Lovely Loft",
-              summary: "A charming loft in Paris",
-              bedrooms: 1,
-              bathrooms: 1
+              name: "The Karate Kid",
+              summary: "After some violent confrontations with his new classmates, Daniel LaRusso learns karate from Japanese handyman Mr. Miyagi, in order to defend himself.",
+              img: 'someurlstringhere',
+              gene: ['action', 'family', 'drama'],
+              userScore: 72
           }
         );
 
@@ -32,6 +33,6 @@ async function main() {
 main().catch(console.error);
 
 async function createListing(client, newListing){
-  const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
-  console.log(`New listing created with the following id: ${result.insertedId}`);
+  const result = await client.db("movies_db").collection("movie_collection").insertOne(newListing);
+  console.log(`New movie added to the database with the id: ${result.insertedId}`);
 }
