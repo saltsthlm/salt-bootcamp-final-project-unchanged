@@ -16,7 +16,7 @@ async function main() {
         await createListing(client,
           {
             user: "user1@gmail.com",
-            liked_movie: [
+            liked_movies: [
               {
                 name: "The Karate Kid",
                 summary: "After some violent confrontations with his new classmates, Daniel LaRusso learns karate from Japanese handyman Mr. Miyagi, in order to defend himself.",
@@ -26,7 +26,7 @@ async function main() {
                 id: 1671
               }
             ],
-            disliked_movie: [
+            disliked_movies: [
 
             ]
           }
