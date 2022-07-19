@@ -5,8 +5,7 @@ import Movies from "./Movies";
 
 
 function Movie() {
-  const[movies,setMovies]=useState([])
-
+  const [ movies, setMovies ] = useState([]);
 
   // useEffect (()=>{
   //   fetch('http://localhost:3001/movie')
@@ -17,8 +16,6 @@ function Movie() {
   //   })
   
   // },[])
-
-  
   
   return (
      <BrowserRouter>
