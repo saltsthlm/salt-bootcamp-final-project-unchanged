@@ -9,7 +9,7 @@ const LikeButton = ( movie ) => {
   useEffect(() => {
     // Send data to the backend via POST
     // Endre dette til riktig path senere
-    fetch('http://localhost:3001/likedMovieList', {  // Enter your IP address here
+    fetch('http://localhost:3001/movies', {  // Enter your IP address here
      method: 'POST', 
      mode: 'cors', 
      body: JSON.stringify({
