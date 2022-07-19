@@ -34,5 +34,5 @@ main().catch(console.error);
 
 async function createListing(client, newListing){
   const result = await client.db("movies_db").collection("movie_collection").insertOne(newListing);
-  console.log(`New movie added to the database with the id: ${result.insertedId}`);
+  console.log(`Added '${newListing.name}' to the database!`);
 }
