@@ -1,4 +1,5 @@
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 const PASSWORD = '1234SALT';
 
@@ -14,11 +15,20 @@ async function main() {
 
         await createListing(client,
           {
-              name: "The Karate Kid",
-              summary: "After some violent confrontations with his new classmates, Daniel LaRusso learns karate from Japanese handyman Mr. Miyagi, in order to defend himself.",
-              img: 'someurlstringhere',
-              gene: ['action', 'family', 'drama'],
-              userScore: 72
+            user: "user1@gmail.com",
+            liked_movie: [
+              {
+                name: "The Karate Kid",
+                summary: "After some violent confrontations with his new classmates, Daniel LaRusso learns karate from Japanese handyman Mr. Miyagi, in order to defend himself.",
+                img: 'someurlstringhere',
+                gene: ['action', 'family', 'drama'],
+                userScore: 72,
+                id: 1671
+              }
+            ],
+            disliked_movie: [
+
+            ]
           }
         );
 
@@ -34,5 +44,5 @@ main().catch(console.error);
 
 async function createListing(client, newListing){
   const result = await client.db("movies_db").collection("movie_collection").insertOne(newListing);
-  console.log(`Added '${newListing.name}' to the database!`);
+  console.log(`Added a new movie for user ${newListing.user} to the database!`);
 }
