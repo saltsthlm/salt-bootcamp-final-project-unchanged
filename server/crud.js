@@ -1,4 +1,3 @@
-// const { MongoClient } = require('mongodb');
 import { MongoClient } from 'mongodb';
 
 const PASSWORD = '1234SALT';
@@ -19,7 +18,6 @@ async function main() {
             ]
           }
         );
-        // Make the appropriate DB calls
 
     } finally {
         await client.close();
