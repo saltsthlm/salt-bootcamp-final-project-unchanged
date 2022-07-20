@@ -14,6 +14,7 @@ const AppContextProvider = ({ children }) => {
   const [ movie, setMovie ] = useState(movies[counter])
   const [ category, setCategory ] = useState(null);
   const [ likedMovies, setLikedMovies ] = useState([]);
+  const [ dislikedMovies, setDislikedMovies ] = useState([]);
 
   return (
     <AppContext.Provider 
@@ -27,7 +28,9 @@ const AppContextProvider = ({ children }) => {
         category,
         setCategory,
         likedMovies, 
-        setLikedMovies
+        setLikedMovies, 
+        dislikedMovies, 
+        setDislikedMovies
       }}
     >
       {children}

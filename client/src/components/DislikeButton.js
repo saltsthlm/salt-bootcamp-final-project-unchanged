@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import AppContext from "..";
 
-const DislikeButton = ({ movie, setCounter, counter }) => {
+const DislikeButton = () => {
   //console.log(movie);
   //This state should be higher up. Maybe make context.
-  const [ dislikedMovies, setDislikedMovies ] = useState([]);
+  const { dislikedMovies, setDislikedMovies, movie, setCounter, counter } = useContext(AppContext);
   const { user } = useAuth0();
 
   // This have to be changed to handle dislikes
