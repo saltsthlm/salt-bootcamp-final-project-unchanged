@@ -5,9 +5,8 @@ import AppContext from "..";
 const DislikeButton = () => {
   //console.log(movie);
   //This state should be higher up. Maybe make context.
-  const { dislikedMovies, setDislikedMovies, movie, setCounter, counter } = useContext(AppContext);
+  const { dislikedMovies, likedMovies, setDislikedMovies, movie, setCounter, counter } = useContext(AppContext);
   const { user } = useAuth0();
-
   // This have to be changed to handle dislikes
   const sendList = () => {
     fetch('http://localhost:3001/movie', {  
@@ -18,11 +17,11 @@ const DislikeButton = () => {
       },
       body: JSON.stringify({ 
         user: user.email,
+        likedMovies: {...likedMovies},
         dislikedMovies: {...dislikedMovies}
         }) 
     })
   }
-
   const handleLike = () => {
     const newDislikedMovie = {
       title: movie.title,
@@ -31,8 +30,11 @@ const DislikeButton = () => {
       rating: movie.vote_average,
       id: movie.id,
     }
-    const newDislikedMovies = [...dislikedMovies].push(newDislikedMovies);
+    
+    const newDislikedMovies = dislikedMovies.slice() 
+    newDislikedMovies.push(newDislikedMovie)
     setDislikedMovies(newDislikedMovies);
+    console.log(newDislikedMovies);
      // This have to be changed to handle dislikes
     sendList();
     const newNum = counter + 1;
@@ -40,7 +42,6 @@ const DislikeButton = () => {
   }
   
   //Add a like-icon later
-  return <button onClick={() => handleLike()}>Like</button>;
+  return <button onClick={() => handleLike()}>Dislike</button>;
 };
-
 export default DislikeButton;
