@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
+import AppContext from "..";
 import Movie from "./Movie";
 import Filter from "./Filter";
 import LikeButton from "./LikeButton";
 
 function Swiper() {
-  const [ counter, setCounter ] = useState(0);
-  const [ movies, setMovies ] = useState([]);
-  const [ movie, setMovie ] = useState(movies[counter])
-  const [ category, setCategory ] = useState(null);
+  const { category, setCategory, movie, setMovie, movies, setMovies, counter, setCounter } = useContext(AppContext);
 
   // Defaults to popular movies
   const setUp = () => {
@@ -49,9 +47,9 @@ function Swiper() {
 
   return (
     <div className="App">
-       <Filter setCategory={setCategory}/>
-       {!movie ? setUp() : <Movie key={movie.id} movie={movie}/>}
-      <LikeButton movie={movie} setCounter={setCounter} counter={counter}/>
+       <Filter />
+       {!movie ? setUp() : <Movie key={movie.id} />}
+      <LikeButton />
     </div>
   );
 }

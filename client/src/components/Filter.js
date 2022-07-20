@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "..";
 
-const Filter = ({ setCategory }) => {
+const Filter = () => {
+  const { setCategory } = useContext(AppContext);
+  
   // Changing the category
   const handleChange = (e) => {
     if(e.target.value === "popular"){
