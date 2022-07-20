@@ -14,22 +14,22 @@ function Home() {
 const navigate = useNavigate();
 
 const navigateAction =() =>{
-    navigate('/action');
+    navigate('/28');
 }
 const navigateAnimate=() =>{
-    navigate('/animate');
+    navigate('/16');
 }
 const navigateComedy=() =>{
-    navigate('/comedy');
+    navigate('/35');
 }
 const navigateRomance=() =>{
-    navigate('/romance');
+    navigate('/10749');
 }
 const navigateHorror=() =>{
-    navigate('/horror');
+    navigate('/27');
 }
 const navigateDrama=() =>{
-    navigate('/drama');
+    navigate('/18');
 }
   
   return (
