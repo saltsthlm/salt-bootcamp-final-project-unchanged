@@ -1,5 +1,6 @@
 import { MongoClient } from 'mongodb';
 
+
 const PASSWORD = '1234SALT';
 const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
 
@@ -9,7 +10,7 @@ async function main() {
         await client.connect();
         await createListing(client,
           {
-            user: "user1@gmail.com",
+            user: "andreaelvegard@gmail.com",
             liked_movies: [
             ],
             disliked_movies: [
@@ -34,11 +35,11 @@ const addMovie = () => {
   if (err) throw err;
   const dbo = db.db("movies_db");
   const myquery = { user: "user1@gmail.com" };
-  const newValues = { $push: { liked_movies: {
+  const newValues = { $set: { liked_movies: {
      name: "The Karate Kid 2",
      summary: "After some violent confrontations with his new classmates, Daniel LaRusso learns karate from Japanese handyman Mr. Miyagi, in order to defend himself.",
      img: 'someurlstringhere',
-     gene: ['action', 'family', 'drama'],
+     gene: [1, 22, 48],
      userScore: 72,
      id: 1671
   } } };
@@ -50,4 +51,4 @@ const addMovie = () => {
   });
 }
 
-addMovie();
+// addMovie();
