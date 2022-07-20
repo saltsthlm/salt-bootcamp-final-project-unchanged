@@ -3,6 +3,7 @@ import AppContext from "..";
 import Movie from "./Movie";
 import Filter from "./Filter";
 import LikeButton from "./LikeButton";
+import DislikeButton from "./DislikeButton";
 
 function Swiper() {
   const { category, setCategory, movie, setMovie, movies, setMovies, counter, setCounter } = useContext(AppContext);
@@ -50,6 +51,7 @@ function Swiper() {
        <Filter />
        {!movie ? setUp() : <Movie key={movie.id} />}
       <LikeButton />
+      <DislikeButton />
     </div>
   );
 }

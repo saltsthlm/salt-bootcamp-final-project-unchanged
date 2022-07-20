@@ -5,7 +5,7 @@ import AppContext from "..";
 const LikeButton = () => {
   //console.log(movie);
   //This state should be higher up. Maybe make context.
-  const { movie, setCounter, counter, likedMovies, setLikedMovies } = useContext(AppContext);
+  const { movie, setCounter, counter, likedMovies, dislikedMovies , setLikedMovies } = useContext(AppContext);
   const { user } = useAuth0();
 
   const sendList = () => {
@@ -17,7 +17,8 @@ const LikeButton = () => {
       },
       body: JSON.stringify({ 
         user: user.email,
-        likedMovies: {...likedMovies}
+        likedMovies: {...likedMovies},
+        dislikedMovies: {...dislikedMovies}
         }) 
     })
   }

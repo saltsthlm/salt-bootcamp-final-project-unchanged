@@ -62,7 +62,8 @@ app.post('/movie', async (req, res) => {
     if (err) throw err;
     const dbo = db.db("movies_db");
     const myquery = { user: req.body.user };
-    const newvalues = { $set: { liked_movies: req.body.likedMovies } };
+    console.log('wwwwwwww', req.body)
+    const newvalues = { $set: { liked_movies: req.body.likedMovies,  disliked_movies: req.body.dislikedMovies}  };
     dbo.collection("movie_collection").updateOne(myquery, newvalues, function(err, res) {
       if (err) throw err;
       console.log("1 document updated");
@@ -71,6 +72,24 @@ app.post('/movie', async (req, res) => {
     });
   });
 })
+
+// app.post('/movie', async (req, res) => {
+//   console.log('heisann', req.body);
+//   const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
+//   console.log('yo')
+//   MongoClient.connect(uri, function(err, db) {
+//     if (err) throw err;
+//     const dbo = db.db("movies_db");
+//     const myquery = { user: req.body.user };
+//     const newvalues = { $set: { disliked_movies: req.body.disliked_movies } };
+//     dbo.collection("movie_collection").updateOne(myquery, newvalues, function(err, res) {
+//       if (err) throw err;
+//       console.log("1 document updated");
+//       db.close();
+//       console.log('dislikeeeeeee', newvalues);
+//     });
+//   });
+// })
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
