@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//  Should make context here
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Auth0Provider
