@@ -5,14 +5,10 @@ const PASSWORD = '1234SALT';
 const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
 
 async function main() {
-
-
     const client = new MongoClient(uri);
-
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-
         await createListing(client,
           {
             user: "user1@gmail.com",
@@ -31,9 +27,7 @@ async function main() {
             ]
           }
         );
-
         // Make the appropriate DB calls
-
     } finally {
         // Close the connection to the MongoDB cluster
         await client.close();
