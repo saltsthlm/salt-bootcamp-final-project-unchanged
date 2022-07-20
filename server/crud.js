@@ -5,7 +5,6 @@ const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.n
 
 async function main() {
     const client = new MongoClient(uri);
-
     try {
         await client.connect();
         await createListing(client,
@@ -17,8 +16,7 @@ async function main() {
 
             ]
           }
-        );
-
+        )
     } finally {
         await client.close();
     }
