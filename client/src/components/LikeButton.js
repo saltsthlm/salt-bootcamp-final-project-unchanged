@@ -30,7 +30,8 @@ const LikeButton = () => {
       rating: movie.vote_average,
       id: movie.id,
     }
-    const newLikedMovies = [...likedMovies].push(newLikedMovie);
+    const newLikedMovies = likedMovies.slice();
+    newLikedMovies.push(newLikedMovie);
     setLikedMovies(newLikedMovies);
     sendList();
     const newNum = counter + 1;
