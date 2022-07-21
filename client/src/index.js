@@ -1,47 +1,66 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Auth0Provider } from "@auth0/auth0-react";
-import React, { createContext, useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import LikedMovies from "./pages/LikedMovies";
+import Login from "./pages/Login";
+import { useEffect, useState } from "react";
 
-//  Should make context here
-const AppContext = createContext();
+export default function App() {
+  const { isAuthenticated, isLoading, user } = useAuth0();
+  const [ dislikedMovies,  setDislikedMovies ] = useState([]);
+  const [ likedMovies,  setLikedMovies ] = useState([]);
 
-const AppContextProvider = ({ children }) => {
-  const [ counter, setCounter ] = useState(0);
-  const [ movies, setMovies ] = useState([]);
-  const [ movie, setMovie ] = useState(movies[counter])
-  const [ category, setCategory ] = useState(null);
-  const [ likedMovies, setLikedMovies ] = useState([]);
-  const [ dislikedMovies, setDislikedMovies ] = useState([]);
+  useEffect(() => {
+    if(isAuthenticated){
+      fetch('http://localhost:3001/storedLists', {  
+        method: 'POST', 
+        mode: 'cors', 
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+          user: user.email,
+        }) 
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('igjen')
+        setLikedMovies([...data.liked_movies])
+        setDislikedMovies([...data.disliked_movies])
+      })
+    }
+  }, [user])
+
+  if(!isAuthenticated ){
+    return <Login />
+  }
 
   return (
-    <AppContext.Provider 
-      value={{
-        counter,
-        setCounter,
-        movies,
-        setMovies,
-        movie,
-        setMovie,
-        category,
-        setCategory,
-        likedMovies, 
-        setLikedMovies, 
-        dislikedMovies, 
-        setDislikedMovies
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home 
+            dislikedMovies={dislikedMovies}  
+            setDislikedMovies={setDislikedMovies}
+            likedMovies={likedMovies}  
+            setLikedMovies={setLikedMovies}
+            />} />
+          <Route path="login" element={<Login />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="likedmovies" element={<LikedMovies likedMovies={likedMovies} />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AppContextProvider>
-    <Auth0Provider
+  <Auth0Provider
     // Hardcoding it for now
       domain="dev-3g7shhdy.us.auth0.com"
       clientId="7TetmI8GQhtDruSdI5ymkH4aXiLcxaOz"
@@ -49,12 +68,4 @@ root.render(
     >
       <App />
     </Auth0Provider>
-  </AppContextProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
-
-export default AppContext;
