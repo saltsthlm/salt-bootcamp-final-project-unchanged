@@ -8,6 +8,8 @@ import Profile from "./pages/Profile";
 import LikedMovies from "./pages/LikedMovies";
 import Login from "./pages/Login";
 import { useEffect, useState } from "react";
+import "./App.css"
+
 
 export default function App() {
   const { isAuthenticated, isLoading, user } = useAuth0();

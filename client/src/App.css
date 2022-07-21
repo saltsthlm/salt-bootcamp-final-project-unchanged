@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,12 +35,125 @@
   to {
     transform: rotate(360deg);
   }
+}  */
+
+body{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1A1D28;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color:#EAECFF;
+  font-size: 2rem;
 }
 
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: larger;
+  margin-top: 2rem;
+  position: sticky;
 
+}
+#category{
+  /* text-align: center; */
+  /* display: flex; */
+  width: 300px;
+  font-size: large;
+  background: transparent;
+  color:#EAECFF;
+  border-color:#EAECFF ;
+  border-radius: 10px;
+  /* justify-content: center; */
+  margin: 0 auto;
+  padding: 5px;
+
+}
 .img{
   width: 300px;
   height: 500px;
   margin-left: 50px;
   
+}
+h1{
+  color:#EAECFF;
+
+}
+section{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button{
+  padding: 10px 20px;
+  margin-left: 1rem;
+  border-radius: 10px;
+  font-size: large;
+  margin-top: 1rem;
+}
+.movie__description-hidden{
+  visibility: hidden;
+  display: none;
+}
+.movie__description-visible{
+  visibility: visible;
+  display: block;
+}
+p{
+  color:#EAECFF;
+  max-width: 30rem;
+  text-align: center;
+  margin: 0 auto;
+}
+h3{
+  color:#6E83CF;
+
+}
+h4{
+  color:#EAECFF;
+
+}
+.option{
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  
+}
+.moveList{
+  margin-top: 10rem;
+}
+
+.moveList img{
+  padding: 10px;
+}
+.profile{
+  text-align: center;
+  margin-top: 17rem;
+}
+.profile img{
+  width: 200px;
+}
+.profile button{
+  padding: 5px 10px;
+  font-size: medium;
+  margin-top: 1rem;
+}
+.profile h2{
+  color:#6E83CF;
 }

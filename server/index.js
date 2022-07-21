@@ -48,6 +48,7 @@ app.post('/storedLists', async (req, res) => {
   });
 })
 
+// we should work on this--------------------------------------------
 app.post('/register', async (req, res) => {
   console.log('heisann2', req.body);
   const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
