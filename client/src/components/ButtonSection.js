@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import "../App.css"
+
 
 const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies, likedMovies, setLikedMovies, movie }) => {
   const { user } = useAuth0();
@@ -49,8 +51,8 @@ const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies,
 
   return (
     <section>
-      <button ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>;
-      <button ref={like} onClick={(e) => handleClick(e)}>Like</button>;
+      <button ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>
+      <button ref={like} onClick={(e) => handleClick(e)}>Like</button>
     </section>
   )
 }
