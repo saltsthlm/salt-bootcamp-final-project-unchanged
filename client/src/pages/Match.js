@@ -42,11 +42,15 @@ const Match = ({ likedMovies }) => {
       })
       .then(movies => movies.forEach(el => {
         likedMovies.forEach(movie => {
-          if(movie.id === el.id) return matchList.push(el);
+          if(movie.id === el.id) {
+            console.log(movie, el);
+            const img = `https://image.tmdb.org/t/p/w500/${el.image}`;
+            matches.current.innerHTML += (`<div><h2>${el.title}</h2><img src=${img} /><p>Rating: ${el.rating}/10</p></div>`);    
+            return matchList.push(el);
+          }
         });
-        const img = `https://image.tmdb.org/t/p/w500/${el.image}`;
-        matches.current.innerHTML += (`<div><h2>${el.title}</h2><img src=${img} /><p>Rating: ${el.rating}/10</p></div>`);
       }));
+      console.log(matchList)
   }
 
   return (
