@@ -4,6 +4,7 @@ import { useLinkClickHandler } from "react-router-dom";
 const Match = ({ likedMovies }) => { 
   // andreaelvegard@gmail.com
   // nikola.lukic@appliedtechnology.se
+  // morvaridmahmoudi@gmail.com
   const search = useRef(null);
   const matches = useRef(null);
   const matchList = [];
@@ -36,14 +37,12 @@ const Match = ({ likedMovies }) => {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data.liked_movies)
         return data.liked_movies;
       })
       .then(movies => movies.forEach(el => {
         likedMovies.forEach(movie => {
           if(movie.id === el.id) return matchList.push(el);
         });
-        console.log(matchList);
         const img = `https://image.tmdb.org/t/p/w500/${el.image}`;
         matches.current.innerHTML += (`<div><h2>${el.title}</h2><img src=${img} /><p>Rating: ${el.rating}/10</p></div>`);
       }));
