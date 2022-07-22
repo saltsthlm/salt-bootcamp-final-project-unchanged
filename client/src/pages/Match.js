@@ -21,6 +21,7 @@ const Match = ({ likedMovies }) => {
   // }
 
   const handleSubmit = (e) => {
+    matches.current.innerHTML = '';
     e.preventDefault();
     // E-mail of user to serach for
     const searchWord = search.current.value;
