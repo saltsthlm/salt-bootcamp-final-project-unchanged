@@ -101,7 +101,7 @@ text-align: center;
 }
 
 .card-img{
-width: 270px; 
+width: 350px; 
 /* height: 550px; */
 
  }
@@ -114,9 +114,9 @@ width: 270px;
    color: transparent;
       } */
 
-      /* .card-img-small{
+      .card-img-small{
         width: 250px;
-      } */
+      }
 
 h1{
   color:#EAECFF;
