@@ -1,10 +1,12 @@
+import "../App.css"
+
 import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
   return (
     <>
       <nav>
-        <ul>
+        <ul className="navbar">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -12,7 +14,7 @@ const Layout = () => {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/likedmovies">Liked Movies</Link>
+            <Link to="/likedmovies">My Movies</Link>
           </li>
           <li>
             <Link to="/match">Match</Link>
