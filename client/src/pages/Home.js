@@ -10,6 +10,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   const [ movies, setMovies ] = useState([]);
   const [ movie, setMovie ] = useState(movies[counter]);
   const info = useRef(null)
+  const image = useRef(null)
 
   useEffect(() => {
      // Defaults to popular movies
@@ -100,14 +101,14 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   const Movie = () => {
     const visibilityChange = () => {
       info.current.className = info.current.className === "movie__description-hidden" ?  "movie__description-visible" :  "movie__description-hidden";
-
+      // image.current.className = image.current.className === "card-img" ? "card-img-small" : "card-img"
       //  console.log("info",info.current.className);
     }
 
     return (
       <div className="movie-card">
         <h1>{movie.title}</h1>
-        <img src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt={movie.title} onClick={visibilityChange} className="card-img"></img>
+        <img  ref={image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt={movie.title} onClick={visibilityChange} className="card-img"></img>
         <div ref={info} className="movie__description-hidden">
           <h4>Release Date: {movie.release_date}</h4>
           <p>{movie.overview}</p>
