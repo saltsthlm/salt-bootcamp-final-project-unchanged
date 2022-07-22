@@ -16,6 +16,9 @@ const Layout = () => {
           <li>
             <Link to="/likedmovies">My Movies</Link>
           </li>
+          <li>
+            <Link to="/match">Match</Link>
+          </li>
         </ul>
       </nav>
 

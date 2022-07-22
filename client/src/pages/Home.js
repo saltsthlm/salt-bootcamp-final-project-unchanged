@@ -135,3 +135,4 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
 };
 
 export default Home;
+

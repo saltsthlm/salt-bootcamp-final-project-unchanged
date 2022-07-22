@@ -8,8 +8,8 @@ import Profile from "./pages/Profile";
 import LikedMovies from "./pages/LikedMovies";
 import Login from "./pages/Login";
 import { useEffect, useState } from "react";
+import Match from "./pages/Match";
 import "./App.css"
-
 
 export default function App() {
   const { isAuthenticated, isLoading, user } = useAuth0();
@@ -52,6 +52,7 @@ export default function App() {
             setLikedMovies={setLikedMovies}
             />} />
           <Route path="login" element={<Login />} />
+          <Route path="match" element={<Match likedMovies={likedMovies} />} />
           <Route path="profile" element={<Profile />} />
           <Route path="likedmovies" element={<LikedMovies likedMovies={likedMovies} />} />
         </Route>
