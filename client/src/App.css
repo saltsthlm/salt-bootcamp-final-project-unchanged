@@ -90,15 +90,25 @@ a:hover{
   margin-top: 0;
 
 }
-/* .img{
-  width: 100px;
-  height: 50%;
-  margin-left: 50px;
+/* img{
+  width: 350px; 
+
+} */
+.match-img{
+  width: 350px; 
+
+}
+/* .match{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
 } */
 
-.movie-card{
+/* .movie-card{
 text-align: center;
-}
+} */
 
 .card-img{
 width: 350px; 
@@ -160,6 +170,10 @@ h3{
   margin-top: 0.5rem;
 
 }
+h2{
+  color:#EAECFF;
+
+}
 h4{
   color:#EAECFF;
   margin-top: 0.5rem;
@@ -203,4 +217,14 @@ h4{
   text-align: center;
   margin-top: 17rem;
   /* margin: auto; */
+}
+
+.match{
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+.match input{
+width: 200px;
+padding: 5px;
+border-radius: 5px;
 }
