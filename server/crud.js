@@ -10,9 +10,7 @@ async function main() {
         await client.connect();
         await createListing(client,
           {
-            user_name: [
-              
-            ],
+            user_name: "fake@email.se",
             liked_movies: [
             ],
             disliked_movies: [

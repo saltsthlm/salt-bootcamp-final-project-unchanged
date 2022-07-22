@@ -101,7 +101,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   const Movie = () => {
     const visibilityChange = () => {
       info.current.className = info.current.className === "movie__description-hidden" ?  "movie__description-visible" :  "movie__description-hidden";
-      // image.current.className = image.current.className === "card-img" ? "card-img-small" : "card-img"
+       image.current.className = image.current.className === "card-img-small" ? "card-img" : "card-img-small"
       //  console.log("info",info.current.className);
     }
 
