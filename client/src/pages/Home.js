@@ -105,9 +105,9 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
     }
 
     return (
-      <div className="App">
+      <div className="movie-card">
         <h1>{movie.title}</h1>
-        <img src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt={movie.title} onClick={visibilityChange}></img>
+        <img src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt={movie.title} onClick={visibilityChange} className="card-img"></img>
         <div ref={info} className="movie__description-hidden">
           <h4>Release Date: {movie.release_date}</h4>
           <p>{movie.overview}</p>

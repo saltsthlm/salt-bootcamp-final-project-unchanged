@@ -42,6 +42,7 @@ body{
   padding: 0;
   box-sizing: border-box;
   background-color: #1A1D28;
+  height: 100vh;
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
@@ -57,7 +58,11 @@ ul{
 a{
   text-decoration: none;
   color:#EAECFF;
-  font-size: 2rem;
+  font-size: 1rem;
+}
+a:hover{
+  color:#6E83CF;
+
 }
 
 .navbar{
@@ -65,7 +70,7 @@ a{
   justify-content: space-evenly;
   align-items: center;
   font-size: larger;
-  margin-top: 2rem;
+  /* margin-top: 1rem; */
   position: sticky;
 
 }
@@ -73,7 +78,7 @@ a{
   /* text-align: center; */
   /* display: flex; */
   width: 300px;
-  font-size: large;
+  font-size: 0.8rem;
   background: transparent;
   color:#EAECFF;
   border-color:#EAECFF ;
@@ -83,14 +88,33 @@ a{
   padding: 5px;
 
 }
-.img{
-  width: 300px;
-  height: 500px;
+/* .img{
+  width: 100px;
+  height: 50%;
   margin-left: 50px;
-  
+} */
+
+.movie-card{
+text-align: center;
 }
+
+.movie-card img{
+width: 200px; 
+ }
+.card-img{
+  cursor: pointer;
+  }
+
+  /* .card-img:hover{
+   transform: scale(1.02);
+   color: transparent;
+      } */
+
+
 h1{
   color:#EAECFF;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
 
 }
 section{
@@ -100,7 +124,7 @@ section{
 }
 
 button{
-  padding: 10px 20px;
+  padding: 7px 17px;
   margin-left: 1rem;
   border-radius: 10px;
   font-size: large;
@@ -129,14 +153,14 @@ h4{
 
 }
 .option{
-  margin-top: 4rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  /* margin-bottom: rem; */
   display: flex;
   justify-content: center;
   
 }
 .moveList{
-  margin-top: 10rem;
+  margin-top: 4rem;
 }
 
 .moveList img{
@@ -148,6 +172,7 @@ h4{
 }
 .profile img{
   width: 200px;
+  border-radius: 50%;
 }
 .profile button{
   padding: 5px 10px;
@@ -156,4 +181,10 @@ h4{
 }
 .profile h2{
   color:#6E83CF;
+}
+
+.login{
+  text-align: center;
+  margin-top: 30rem;
+  /* margin: auto; */
 }
