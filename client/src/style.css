@@ -250,6 +250,7 @@ body {
 .hidden {
   transition: display 4000ms;
   opacity: 0;
+  display: none;
   transform: translateY(0);
   transition: transform 0.5s, opacity 200ms;
 }
