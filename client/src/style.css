@@ -407,3 +407,8 @@ body {
   margin: 2em;
   color: rgb(255, 255, 255);
 }
+
+.picker-img{
+  /* visibility: hidden; */
+  display: none;
+}
