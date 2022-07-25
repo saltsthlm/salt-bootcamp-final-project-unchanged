@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 // import "../App.css"
+import { Button } from "primereact/button";
+import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css";                                //icons
 
 
 const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies, likedMovies, setLikedMovies, movie }) => {
@@ -51,8 +55,20 @@ const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies,
 
   return (
     <section className="voting-buttons">
-      <button className="voting-buttons_btn" ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>
-      <button className="voting-buttons_btn" ref={like} onClick={(e) => handleClick(e)}>Like</button>
+      {/* <button className="voting-buttons_btn" ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button> */}
+      {/* <button className="voting-buttons_btn" ref={like} onClick={(e) => handleClick(e)}>Like</button> */}
+      <Button
+      icon="pi pi-times" 
+      className="p-button-lg p-button-rounded p-button-danger voting-buttons_btn" 
+      aria-label="Cancel"
+      ref={dislike} onClick={(e) => handleClick(e)}
+      />
+      <Button
+      icon="pi pi-heart" 
+      className="p-button-lg p-button-rounded p-button-success voting-buttons_btn" 
+      aria-label="Favorite"
+      ref={like} onClick={(e) => handleClick(e)}
+      />
     </section>
   )
 }
