@@ -108,7 +108,7 @@ body {
   position: absolute;
   top: 17px;
   right: 20px;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -146,7 +146,7 @@ body {
   transition: visibility 3s linear 300ms, opacity 300ms;
   text-align: center;
   backdrop-filter: blur(17px) brightness(60%);
-  z-index: 1;
+  z-index: -1;
   position: relative;
 }
 
@@ -167,6 +167,7 @@ body {
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   visibility: visible;
   opacity: 1;
+  z-index: 2;
   transition: visibility 3s linear 300ms, opacity 300ms;
 }
 
@@ -322,7 +323,7 @@ body {
   margin: 1em;
 }
 
-.match-heading {
+.match-heading, .liked-movies_heading {
   font-size: 2.5em;
 }
 
@@ -338,4 +339,40 @@ body {
 
 .match-card-title {
   font-size: 1.5em;
+}
+
+.liked-movies_section {
+  display: grid; 
+  justify-items: center;
+}
+
+.liked-movies_list {
+  display: grid;
+  margin-top: 2em;
+}
+
+.liked-movie {
+  display: flex;
+  margin: 1.5em 1em;
+}
+
+.liked-movie_img {
+  width: 35vw;
+  margin-right: 0.5em;
+}
+
+.liked-movie_info{
+  display: grid;
+  padding: 0.5em;
+  align-items: end;
+}
+
+.remove-btn {
+  width: 5em;
+  padding: 0.2em 0;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.414);
+  color: rgba(255, 255, 255, 0.414);
+  justify-self: end;
 }
