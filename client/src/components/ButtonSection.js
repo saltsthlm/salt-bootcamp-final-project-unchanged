@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import "../App.css"
+// import "../App.css"
 
 
 const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies, likedMovies, setLikedMovies, movie }) => {
@@ -50,9 +50,9 @@ const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies,
   }
 
   return (
-    <section>
-      <button ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>
-      <button ref={like} onClick={(e) => handleClick(e)}>Like</button>
+    <section className="voting-buttons">
+      <button className="voting-buttons_btn" ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>
+      <button className="voting-buttons_btn" ref={like} onClick={(e) => handleClick(e)}>Like</button>
     </section>
   )
 }
