@@ -298,7 +298,7 @@ body {
 .voting-buttons {
   display: flex;
   padding: 1em;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .voting-buttons_btn {
@@ -406,9 +406,4 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.414);
   margin: 2em;
   color: rgb(255, 255, 255);
-}
-
-.picker-img {
-  height: 3rem;
-  width: 3rem;
 }
