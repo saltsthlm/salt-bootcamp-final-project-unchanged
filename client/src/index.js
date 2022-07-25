@@ -26,7 +26,7 @@ export default function App() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
-          user: user.email,
+          email: user.email,
         }) 
       })
       .then(res => res.json())

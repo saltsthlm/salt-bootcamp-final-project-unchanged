@@ -5,14 +5,40 @@ import ButtonSection from "../components/ButtonSection";
 // import "../App.css"
 
 const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies }) => {
-  const { user } = useAuth0();
+  const { user , post} = useAuth0();
   const [ category, setCategory ] = useState(null);
+  const [email, setEmail] = useState(null);
   const [ counter, setCounter ] = useState(0);
   const [ movies, setMovies ] = useState([]);
   const [ movie, setMovie ] = useState(movies[counter]);
   const info = useRef(null)
   const image = useRef(null);
 
+
+  useEffect(()=>{
+    if (!localStorage.getItem("user")) {
+      
+      fetch('http://localhost:3001/register', {  
+        method: 'POST', 
+        mode: 'cors', 
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+          email: user.email
+        }) 
+      })
+      .then((res)=>res.json())
+      .then(data=>{
+        console.log(user.email);
+        
+      })
+      .catch(error=>console.log(error))
+
+      localStorage.setItem("user",JSON.stringify(user.email))
+    }
+  },[])
+  
   useEffect(() => {
      // Defaults to popular movies
      fetch('https://api.themoviedb.org/3/discover/movie?api_key=2b61576c6129138ce5beeb3937518565&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate')
