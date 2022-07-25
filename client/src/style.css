@@ -323,7 +323,9 @@ body {
   margin: 1em;
 }
 
-.match-heading, .liked-movies_heading {
+.match-heading, 
+.liked-movies_heading, 
+.profile-heading {
   font-size: 2.5em;
 }
 
@@ -331,7 +333,8 @@ body {
   width: 50vw;
 }
 
-.match-card {
+.match-card,
+.profile-heading {
   display: grid;
   justify-items: center;
   margin-bottom: 3em;
@@ -375,4 +378,31 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.414);
   color: rgba(255, 255, 255, 0.414);
   justify-self: end;
+}
+
+.profile {
+  display: grid;
+  justify-items: center;
+}
+
+.profile-img {
+  width: 15em;
+  border-radius: 50%;
+  border: solid 1px #f4a261;
+}
+
+.profile-username {
+  font-size: 2em;
+  margin: 0.5em;
+}
+
+.logout-btn {
+  width: 6em;
+  font-size: 1em;
+  padding: 0.5em 0;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.414);
+  margin: 2em;
+  color: rgb(255, 255, 255);
 }
