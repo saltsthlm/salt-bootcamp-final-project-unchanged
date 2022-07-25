@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 // import "../App.css"
+import cancle from "./cancel.png";
+import love from "./love.png";
 
 
 const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies, likedMovies, setLikedMovies, movie }) => {
@@ -51,7 +53,9 @@ const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies,
 
   return (
     <section className="voting-buttons">
+      <img src={cancle} alt="cancle icon" className="picker-img" />
       <button className="voting-buttons_btn" ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>
+      <img src={love} alt="heart icon" className="picker-img"/>
       <button className="voting-buttons_btn" ref={like} onClick={(e) => handleClick(e)}>Like</button>
     </section>
   )
