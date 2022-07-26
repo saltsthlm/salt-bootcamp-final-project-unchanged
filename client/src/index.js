@@ -55,7 +55,7 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="match" element={<Match likedMovies={likedMovies} />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="likedmovies" element={<LikedMovies likedMovies={likedMovies} setLikedMovies={setDislikedMovies} />} />
+          <Route path="likedmovies" element={<LikedMovies likedMovies={likedMovies} setLikedMovies={setLikedMovies} />} />
         </Route>
       </Routes>
     </BrowserRouter>
