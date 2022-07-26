@@ -228,3 +228,12 @@ width: 200px;
 padding: 5px;
 border-radius: 5px;
 }
+
+.like_btn {
+  background-image: url('./components/greenHeart.png');
+  background-size: 100% auto;
+}
+.dislike_btn {
+  background-image: url('./components/remove.png');
+  background-size: 100% auto;
+}

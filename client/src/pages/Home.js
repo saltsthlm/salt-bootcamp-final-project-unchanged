@@ -160,6 +160,8 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
           <div className="card-img" ref={image} onClick={(e) => visibilityChange(e)} 
             style={{backgroundImage: 'linear-gradient(to bottom, rgb(245 246 252 / 0%), rgb(0 0 0 / 82%)), url('+ `https://image.tmdb.org/t/p/w500/${movie.poster_path}`+')'}}>
             <div className="button-container">
+            </div>
+          </div>
               <ButtonSection 
                 counter={counter} 
                 setCounter={setCounter} 
@@ -168,8 +170,6 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
                 likedMovies={likedMovies} 
                 setLikedMovies={setLikedMovies} 
                 movie={movie} />
-            </div>
-          </div>
           {/* <img ref={image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt={movie.title} onClick={() => visibilityChange()} className="card-img" /> */}
         </div>
         <div ref={info} className="movie__description hidden">
