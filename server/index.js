@@ -157,7 +157,9 @@ app.post('/remove-movie', async (req,res)=>{
 })
 
 app.get('*', function (req, res) {
-  res.type('html').sendFile(path.join(__dirname, 'static/index.html'));
+  const indexPath = path.join(__dirname, 'static/index.html');
+  console.log('check this out real quick', indexPath)
+  res.type('html').sendFile(indexPath);
 });
 
 app.listen(PORT, () => {
