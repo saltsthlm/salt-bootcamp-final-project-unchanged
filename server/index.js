@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "../client", "build")));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -156,10 +155,11 @@ app.post('/remove-movie', async (req,res)=>{
   })
 })
 
+app.use(express.static(path.join(__dirname, 'static')));
 app.get('*', function (req, res) {
   const indexPath = path.join(__dirname, 'static/index.html');
-  console.log('check this out real quick', indexPath)
   res.type('html').sendFile(indexPath);
+  // res.send('hehe ha ha')
 });
 
 app.listen(PORT, () => {
