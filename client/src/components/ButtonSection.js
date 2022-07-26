@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 // import "../App.css"
-import cancle from "./cancel.png";
-import love from "./love.png";
+// import cancle from "./cancel.png";
+// import love from "./love.png";
 
 
 
@@ -14,7 +14,7 @@ const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies,
   const sendList = () => {
     fetch('http://localhost:3001/movie', {  
       method: 'POST', 
-      mode: 'cors', 
+      // mode: 'cors', 
       headers: {
         'Content-Type': 'application/json'
       },
@@ -54,9 +54,9 @@ const ButtonSection = ({ counter, setCounter, dislikedMovies, setDislikedMovies,
 
   return (
     <section className="voting-buttons">
-      <img src={cancle} alt="cancle icon" className="picker-img" />
+      {/* <img src={cancle} alt="cancle icon" className="picker-img" /> */}
       <button className="voting-buttons_btn" ref={dislike} onClick={(e) => handleClick(e)}>Dislike</button>
-      <img src={love} alt="heart icon" className="picker-img"/>
+      {/* <img src={love} alt="heart icon" className="picker-img"/> */}
       <button className="voting-buttons_btn" ref={like} onClick={(e) => handleClick(e)}>Like</button>
     </section>
   )

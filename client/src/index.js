@@ -21,7 +21,7 @@ export default function App() {
     if(isAuthenticated){
       fetch('http://localhost:3001/storedLists', {  
         method: 'POST', 
-        mode: 'cors', 
+        // mode: 'cors', 
         headers: {
           'Content-Type': 'application/json'
         },

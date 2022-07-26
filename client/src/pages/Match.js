@@ -28,7 +28,7 @@ const Match = ({ likedMovies }) => {
     // Fetching to the endpoint that responds with all information about a user
     fetch('http://localhost:3001/storedLists', {  
         method: 'POST', 
-        mode: 'cors', 
+        // mode: 'cors', 
         headers: {
           'Content-Type': 'application/json'
         },
