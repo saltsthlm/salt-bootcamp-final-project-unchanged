@@ -26,7 +26,7 @@ const Match = ({ likedMovies }) => {
     // E-mail of user to serach for
     const searchWord = search.current.value;
     // Fetching to the endpoint that responds with all information about a user
-    fetch('http://localhost:3001/storedLists', {  
+    fetch('/storedLists', {  
         method: 'POST', 
          mode: 'cors', 
         headers: {

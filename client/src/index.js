@@ -19,7 +19,7 @@ export default function App() {
 
   useEffect(() => {
     if(isAuthenticated){
-      fetch('http://localhost:3001/storedLists', {  
+      fetch('/storedLists', {  
         method: 'POST', 
         // mode: 'cors', 
         headers: {

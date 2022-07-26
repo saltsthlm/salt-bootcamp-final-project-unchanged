@@ -19,7 +19,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   useEffect(()=>{
     if (!localStorage.getItem("user")) {
       
-      fetch('http://localhost:3001/register', {  
+      fetch('/register', {  
         method: 'POST', 
         mode: 'cors', 
         headers: {

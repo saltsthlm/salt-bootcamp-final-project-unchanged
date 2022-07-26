@@ -12,7 +12,7 @@ const LikedMovies = ({ likedMovies, setLikedMovies }) => {
 
     const handleDelete = (e, id) =>{
      e.preventDefault();
-     fetch(`http://localhost:3001/remove-movie`,{
+     fetch(`/remove-movie`,{
        method:'Post',
        mode:'cors',
        headers:{
