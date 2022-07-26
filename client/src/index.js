@@ -26,7 +26,7 @@ export default function App() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
-          user: user.email,
+          email: user.email,
         }) 
       })
       .then(res => res.json())
@@ -55,7 +55,7 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="match" element={<Match likedMovies={likedMovies} />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="likedmovies" element={<LikedMovies likedMovies={likedMovies} />} />
+          <Route path="likedmovies" element={<LikedMovies likedMovies={likedMovies} setLikedMovies={setDislikedMovies} />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import cors from 'cors';
 import fetch from'node-fetch';
 import { MongoClient } from 'mongodb';
 import bodyParser from 'body-parser';
-const PASSWORD = '1234SALT';
+const PASSWORD = 'M3Gj5PNCsHH4fY5K';
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -34,11 +34,11 @@ app.get('/movie', async (req, res) => {
 
 app.post('/storedLists', async (req, res) => {
   console.log('heisann', req.body);
-  const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
-  MongoClient.connect(uri, function(err, db) {
+  const uri = `mongodb+srv://codeClub:${PASSWORD}@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority`;
+    MongoClient.connect(uri, function(err, db) {
     if (err) throw err;
     const dbo = db.db("movies_db");
-    const myquery = { user: req.body.user };
+    const myquery = { email: req.body.email };
     dbo.collection("movie_collection").findOne(myquery, function(err, result) {
       if (err) throw err;
       console.log('hei', result);
@@ -55,7 +55,7 @@ app.post('/register', async (req, res) => {
   MongoClient.connect(uri, function(err, db) {
     if (err) throw err;
     const dbo = db.db("movies_db");
-    dbo.collection("movie_collection").insertOne({user: res.body, liked_movies: [], disliked_movies: []}, function (err, result) {
+    dbo.collection("movie_collection").insertOne({email: req.body.email, liked_movies: [], disliked_movies: []}, function (err, result) {
       if (err) throw err;
       console.log(result);
       db.close();
@@ -63,29 +63,37 @@ app.post('/register', async (req, res) => {
   });
 })
 
+
 // Get for the initial setup when a user logs in. 
 
 // If user does not exists yet, we should have a post for making a user in the database. 
 
 // Updates the liked list of the user.
 // There's a problem with the database. Maybe because the user does not exist in the database yet.
- app.post('/movie', async (req, res) => {
+app.post('/movie', async (req, res) => {
   console.log('heisann', req.body);
   const uri = 'mongodb+srv://codeClub:'+PASSWORD+'@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority';
   console.log('yo')
   MongoClient.connect(uri, function(err, db) {
     if (err) throw err;
     const dbo = db.db("movies_db");
-    const myquery = { user: req.body.user };
+    const myquery = { email: req.body.email };
     console.log('wwwwwwww', req.body)
-    const newvalues = { $set: { user_name: req.body.user ,liked_movies: req.body.likedMovies,  disliked_movies: req.body.dislikedMovies}  };
+    const newvalues = { $set: { email: req.body.email ,
+      liked_movies: req.body.likedMovies,
+        disliked_movies: req.body.dislikedMovies}  
+      };
+
     dbo.collection("movie_collection").updateOne(myquery, newvalues, function(err, res) {
       if (err) throw err;
       console.log("1 document updated");
       db.close();
+      
       console.log('closed');
     });
+    
   });
+  return res.send({message:"ok"})
 })
 
 
