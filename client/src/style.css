@@ -339,7 +339,7 @@ body {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.633);
   font-size: 1em;
-  margin: 1em;
+  margin: 1em 1em 2em 1em;
 }
 
 .match-heading, 
@@ -361,7 +361,9 @@ body {
 }
 
 .match-card-title {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  margin: 0 2rem .5rem 2rem;
+  text-align: center;
 }
 
 .liked-movies_section {
@@ -386,6 +388,7 @@ body {
 
 .liked-movie_info{
   display: grid;
+  /* grid-template-columns: 1fr 3fr ; */
   padding: 0.5em;
   align-items: end;
 }
@@ -428,7 +431,12 @@ body {
   color: rgb(255, 255, 255);
 }
 
-.picker-img{
-  /* visibility: hidden; */
-  display: none;
+.like_btn {
+  background-image: url('./components/greenHeart.png');
+  background-size: 100% auto;
 }
+.dislike_btn {
+  background-image: url('./components/remove.png');
+  background-size: 100% auto;
+}
+
