@@ -35,7 +35,7 @@ body {
   width: 10em;
   padding: 1em;
   border-radius: 10px;
-  border: 1px solid white;
+  border: 1px solid #6E83CF;
   background-color: transparent;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.285);
   font-weight: bold;
@@ -51,7 +51,7 @@ body {
 .profile_img {
   border-radius: 50%;
   width: 2.3em;
-  border: solid 1px #f4a261;
+  border: solid 1px #6E83CF;
   position: absolute;
   top: 13px;
   left: 20px;
@@ -76,8 +76,9 @@ body {
 }
 
 .menu_link {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-decoration: none;
-  color: #ffffff;
+  color: #6E83CF;
   font-weight: 500;
   font-size: 1.2rem;
   padding: 0.7rem;
@@ -123,7 +124,7 @@ body {
   height: 4px;
   width: 100%;
   border-radius: 10px;
-  background: #ffffff;
+  background: #6E83CF;
 }
 
 .nav-container .hamburger-lines .line1 {
@@ -197,7 +198,8 @@ body {
   border-radius: 10px;
   width: 10em;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.562);
+  border: 1px solid #6E83CF;
+  color: #6E83CF;
   font-weight: bold;
   font-size: 1em;
   appearance: none;
@@ -232,7 +234,8 @@ body {
 
 .option {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  color: #6E83CF;
 }
 
 .movie-card {
@@ -335,6 +338,7 @@ body {
 .match-heading, 
 .liked-movies_heading, 
 .profile-heading {
+  color: #6E83CF;
   font-size: 2.5em;
 }
 
