@@ -7,7 +7,7 @@ const Login = () => {
   
   return (
     <div className="login">
-      <h1 className="logo">APP NAME</h1>
+      <h1 className="logo">MatchFlix</h1>
       <img src={popcorn} alt='popcorn' className="popcorn_img"/>
       <button onClick={() => loginWithRedirect()} className="login_btn">LOG IN</button>
     </div>
