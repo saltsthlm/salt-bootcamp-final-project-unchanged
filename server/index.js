@@ -3,18 +3,19 @@ import cors from 'cors';
 import fetch from'node-fetch';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import bodyParser from 'body-parser';
-
-
+import path, { dirname } from "path";
+import { fileURLToPath } from 'url';
 const PASSWORD = 'M3Gj5PNCsHH4fY5K';
 const uri = `mongodb+srv://codeClub:${PASSWORD}@movie-project.rhbq4r1.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri,{ useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "../client", "build")));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-
 app.use(bodyParser.json());
 app.use(cors())
 
