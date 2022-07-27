@@ -11,6 +11,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   const [ counter, setCounter ] = useState(0);
   const [ movies, setMovies ] = useState([]);
   const [ movie, setMovie ] = useState(movies[counter]);
+  const [ page, setPage ] = useState(1);
   const info = useRef(null);
   const infoContent = useRef(null);
   const image = useRef(null);
@@ -32,7 +33,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
       .then((res)=>res.json())
       .then(data=>{
         console.log(user.email);
-        
+
       })
       .catch(error=>console.log(error))
 
@@ -42,7 +43,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   
   useEffect(() => {
      // Defaults to popular movies
-     fetch('https://api.themoviedb.org/3/discover/movie?api_key=2b61576c6129138ce5beeb3937518565&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate')
+     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=2b61576c6129138ce5beeb3937518565&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`)
       .then(res => res.json())
       .then(data => {
         let nope = data.results.map(el => {
@@ -70,12 +71,17 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
   // }, [])
 
   useEffect(() => {
+    if(counter === movies.length - 1){
+      setCounter(0);
+      const newPage = page+1;
+      setPage(newPage);
+    }
     setMovie(movies[counter]);
   }, [movies, counter])
 
   useEffect(() => {
     if(category === null) {
-      fetch('https://api.themoviedb.org/3/discover/movie?api_key=2b61576c6129138ce5beeb3937518565&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate')
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=2b61576c6129138ce5beeb3937518565&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`)
       .then(res => res.json())
       .then(data => {
         let nope = data.results.map(el => {
@@ -89,6 +95,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
         setMovies(nope.filter(el => el !== undefined));});
         return;
     }
+
     fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${category}&api_key=2b61576c6129138ce5beeb3937518565&language=en-US`)
       .then(res => res.json())
       .then(data => {
@@ -102,7 +109,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
         console.log('change')
         setMovies(nope.filter(el => el !== undefined));
       });
-  }, [category]);
+  }, [category, page]);
 
   // Changing category of films when changing option in dropdown
   const handleChange = (e) => {
@@ -110,6 +117,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
       return setCategory(null);
     }
     setCategory(e.target.value);
+    setCounter(0);
   }
 
   const Filter = () => {
