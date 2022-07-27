@@ -357,7 +357,7 @@ body {
 .profile-heading {
   display: grid;
   justify-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 .match-card-title {
@@ -440,3 +440,13 @@ body {
   background-size: 100% auto;
 }
 
+.delete-btn {
+  background-color: initial;
+  border: 1px solid hsl(0deg 0% 100% / 26%);
+  border-radius: 5px;
+  color: #524e4e;
+  font-size: 0.8em;
+  margin: 2em;
+  padding: 0.2em 0.5em;
+  justify-self: left;
+}
