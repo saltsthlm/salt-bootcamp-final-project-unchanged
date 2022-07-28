@@ -254,6 +254,8 @@ body {
   align-items: end;
   align-content: flex-end;
   padding: 0.5em;
+  max-width: 450px;
+  max-height: 675px;
 }
 
 .hidden {
