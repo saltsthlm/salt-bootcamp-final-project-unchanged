@@ -12,7 +12,7 @@ import Match from "./pages/Match";
 import './style.css';
 
 export default function App() {
-  const { isAuthenticated, isLoading, user } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   const [ dislikedMovies,  setDislikedMovies ] = useState([]);
   const [ likedMovies,  setLikedMovies ] = useState([]);
 

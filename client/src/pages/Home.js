@@ -1,8 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-// import e from "cors";
 import React, { useEffect, useRef, useState } from "react";
 import ButtonSection from "../components/ButtonSection";
-// import "../App.css"
+import star from '../assets/star.png';
 
 const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies }) => {
   const { user , post} = useAuth0();
@@ -185,7 +184,7 @@ const Home = ({ dislikedMovies,  setDislikedMovies, likedMovies,  setLikedMovies
             <h2 className="movie-title">{movie.title}</h2>
             <span className="movie-releasedate">Release Date: {movie.release_date}</span>
             <p>{movie.overview}</p>
-            <p className="movie-rating">User Rating: {movie.vote_average} / 10</p>
+            <p className="movie-rating">{movie.vote_average}/10<img class="star-icon" src={star}/></p>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@
 } 
 
 body {
-  background: linear-gradient(#182f3e, #030c12);
+  background: linear-gradient(#0b1f2c, #030c12);
   min-height: 100vh;
   z-index: 0;
 }
@@ -294,7 +294,7 @@ body {
 
 .movie__description * {
   margin: 0.5em 0;
-  color: black;
+  color: #303030;
 }
 
 .movie__description > p {
@@ -307,10 +307,12 @@ body {
 
 .movie-rating {
   font-size: 1.5em;
+  text-align: center;
 }
 
 .movie-title {
-  font-size: 2em;
+  font-size: 2.3em;
+  margin-bottom: 0;
 }
 
 .voting-buttons {
@@ -391,6 +393,7 @@ body {
   /* grid-template-columns: 1fr 3fr ; */
   padding: 0.5em;
   align-items: end;
+  width: 100%;
 }
 
 .remove-btn {
@@ -407,6 +410,7 @@ body {
 .profile {
   display: grid;
   justify-items: center;
+  height: 90vh;
 }
 
 .profile-img {
@@ -423,7 +427,6 @@ body {
 .logout-btn {
   width: 6em;
   font-size: 1em;
-  padding: 0.5em 0;
   background-color: transparent;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.414);
@@ -444,9 +447,19 @@ body {
   background-color: initial;
   border: 1px solid hsl(0deg 0% 100% / 26%);
   border-radius: 5px;
-  color: #524e4e;
+  color: #8c8c8c;
   font-size: 0.8em;
   margin: 2em;
-  padding: 0.2em 0.5em;
+  padding: 0em 1.2em;
   justify-self: left;
+  line-height: 0.8em;
+}
+
+.star-icon {
+  width: 1em;
+  margin: 0 0.5em;
+}
+
+.profile_link {
+  padding-top: 1em;
 }
